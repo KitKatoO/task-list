@@ -12,7 +12,6 @@ namespace Task.Controllers
     {
         public ActionResult Index()
         {
-            
             using (var db = new TaskContext())
             {
                 var tasks = db.Tasks.ToList();
