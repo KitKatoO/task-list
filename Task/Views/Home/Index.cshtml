@@ -1,0 +1,65 @@
+﻿@using Task.Controllers
+@model IEnumerable<Task.Models.Task>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href='style.css' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content=" width=device-width" />
+    <title> Планировщик </title>
+</head>
+<body>
+<div>
+    
+    <div class="row">
+        <h2>Список задач</h2>
+
+    </div>
+
+    <table class="table table-striped">
+        <tr>
+            <th>
+                <p> Название </p>
+            </th>
+            <th>
+                <p> Описание </p>
+            </th>
+            <th>
+                <p> Дата</p>
+            </th>
+            <td>
+                <p> </p>
+            </td>
+            <td>
+                <p> </p>
+            </td>
+        </tr>
+
+        @foreach (var t in Model)
+        {
+
+            <tr>
+                <td>
+                    <p> @t.TaskTopic</p>
+                </td>
+                <td>
+                    <p> @t.TaskNote</p>
+                </td>
+                <td>
+                    <p>@t.Date.ToString("d")</p>
+                </td>
+                <td>
+                    <p> @Html.ActionLink("Удалить", "Delete", "Home", new {id = t.TaskID}, null) </p>
+                </td>
+                <td>
+                    <p> @Html.ActionLink("Редактировать", "Edit", "Home", new {id = t.TaskID}, null)</p>
+                </td>
+            </tr>
+        }
+
+
+    </table>
+</div>
+</body>
+</html>
